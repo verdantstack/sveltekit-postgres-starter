@@ -1,0 +1,10 @@
+[**sveltekit-postgres-starter**](../../../README.md)
+
+***
+
+# Variable: sessions
+
+> `const` **sessions**: `PgTableWithColumns`\<\{ `columns`: \{ `createdAtMs`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgBigInt53"`; `data`: `number`; `dataType`: `"number"`; `driverParam`: `string` \| `number`; `enumValues`: `undefined`; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"created_at_ms"`; `notNull`: `true`; `tableName`: `"sessions"`; \}, \{ \}, \{ \}\>; `expiresAtMs`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgBigInt53"`; `data`: `number`; `dataType`: `"number"`; `driverParam`: `string` \| `number`; `enumValues`: `undefined`; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"expires_at_ms"`; `notNull`: `true`; `tableName`: `"sessions"`; \}, \{ \}, \{ \}\>; `id`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgText"`; `data`: `string`; `dataType`: `"string"`; `driverParam`: `string`; `enumValues`: \[`string`, `...string[]`\]; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `true`; `name`: `"id"`; `notNull`: `true`; `tableName`: `"sessions"`; \}, \{ \}, \{ \}\>; `userId`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgUUID"`; `data`: `string`; `dataType`: `"string"`; `driverParam`: `string`; `enumValues`: `undefined`; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"user_id"`; `notNull`: `true`; `tableName`: `"sessions"`; \}, \{ \}, \{ \}\>; \}; `dialect`: `"pg"`; `name`: `"sessions"`; `schema`: `undefined`; \}\>
+
+Login sessions. `id` is the sha256 of the raw session token — the raw token
+only ever lives in the client cookie and is never persisted.
