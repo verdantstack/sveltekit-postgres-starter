@@ -1,0 +1,10 @@
+[**sveltekit-postgres-starter**](../../../README.md)
+
+***
+
+# Variable: organizations
+
+> `const` **organizations**: `PgTableWithColumns`\<\{ `columns`: \{ `createdAtMs`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgBigInt53"`; `data`: `number`; `dataType`: `"number"`; `driverParam`: `string` \| `number`; `enumValues`: `undefined`; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"created_at_ms"`; `notNull`: `true`; `tableName`: `"organizations"`; \}, \{ \}, \{ \}\>; `id`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgUUID"`; `data`: `string`; `dataType`: `"string"`; `driverParam`: `string`; `enumValues`: `undefined`; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `true`; `name`: `"id"`; `notNull`: `true`; `tableName`: `"organizations"`; \}, \{ \}, \{ \}\>; `name`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgText"`; `data`: `string`; `dataType`: `"string"`; `driverParam`: `string`; `enumValues`: \[`string`, `...string[]`\]; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"name"`; `notNull`: `true`; `tableName`: `"organizations"`; \}, \{ \}, \{ \}\>; `slug`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgText"`; `data`: `string`; `dataType`: `"string"`; `driverParam`: `string`; `enumValues`: \[`string`, `...string[]`\]; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"slug"`; `notNull`: `true`; `tableName`: `"organizations"`; \}, \{ \}, \{ \}\>; \}; `dialect`: `"pg"`; `name`: `"organizations"`; `schema`: `undefined`; \}\>
+
+Top-level tenant. `slug` is unique and used in profile URLs for routing
+within the product.
