@@ -1,0 +1,30 @@
+[**sveltekit-postgres-starter**](../../../README.md)
+
+***
+
+# Variable: regionMoves
+
+> `const` **regionMoves**: `PgTableWithColumns`\<\{ `columns`: \{ `cancelledAtMs`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgBigInt53"`; `data`: `number`; `dataType`: `"number"`; `driverParam`: `string` \| `number`; `enumValues`: `undefined`; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"cancelled_at_ms"`; `notNull`: `false`; `tableName`: `"region_moves"`; \}, \{ \}, \{ \}\>; `cancelledByUserId`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgUUID"`; `data`: `string`; `dataType`: `"string"`; `driverParam`: `string`; `enumValues`: `undefined`; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"cancelled_by_user_id"`; `notNull`: `false`; `tableName`: `"region_moves"`; \}, \{ \}, \{ \}\>; `completedAtMs`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgBigInt53"`; `data`: `number`; `dataType`: `"number"`; `driverParam`: `string` \| `number`; `enumValues`: `undefined`; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"completed_at_ms"`; `notNull`: `false`; `tableName`: `"region_moves"`; \}, \{ \}, \{ \}\>; `fromRegion`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgText"`; `data`: `string`; `dataType`: `"string"`; `driverParam`: `string`; `enumValues`: \[`string`, `...string[]`\]; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"from_region"`; `notNull`: `true`; `tableName`: `"region_moves"`; \}, \{ \}, \{ \}\>; `id`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgUUID"`; `data`: `string`; `dataType`: `"string"`; `driverParam`: `string`; `enumValues`: `undefined`; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `true`; `name`: `"id"`; `notNull`: `true`; `tableName`: `"region_moves"`; \}, \{ \}, \{ \}\>; `justification`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgText"`; `data`: `string`; `dataType`: `"string"`; `driverParam`: `string`; `enumValues`: \[`string`, `...string[]`\]; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"justification"`; `notNull`: `false`; `tableName`: `"region_moves"`; \}, \{ \}, \{ \}\>; `orgId`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgUUID"`; `data`: `string`; `dataType`: `"string"`; `driverParam`: `string`; `enumValues`: `undefined`; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"org_id"`; `notNull`: `true`; `tableName`: `"region_moves"`; \}, \{ \}, \{ \}\>; `requestedAtMs`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgBigInt53"`; `data`: `number`; `dataType`: `"number"`; `driverParam`: `string` \| `number`; `enumValues`: `undefined`; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"requested_at_ms"`; `notNull`: `true`; `tableName`: `"region_moves"`; \}, \{ \}, \{ \}\>; `requestedByUserId`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgUUID"`; `data`: `string`; `dataType`: `"string"`; `driverParam`: `string`; `enumValues`: `undefined`; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"requested_by_user_id"`; `notNull`: `true`; `tableName`: `"region_moves"`; \}, \{ \}, \{ \}\>; `status`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgText"`; `data`: `string`; `dataType`: `"string"`; `driverParam`: `string`; `enumValues`: \[`string`, `...string[]`\]; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"status"`; `notNull`: `true`; `tableName`: `"region_moves"`; \}, \{ \}, \{ \}\>; `toRegion`: `PgColumn`\<\{ `baseColumn`: `never`; `columnType`: `"PgText"`; `data`: `string`; `dataType`: `"string"`; `driverParam`: `string`; `enumValues`: \[`string`, `...string[]`\]; `generated`: `undefined`; `hasDefault`: `false`; `hasRuntimeDefault`: `false`; `identity`: `undefined`; `isAutoincrement`: `false`; `isPrimaryKey`: `false`; `name`: `"to_region"`; `notNull`: `true`; `tableName`: `"region_moves"`; \}, \{ \}, \{ \}\>; \}; `dialect`: `"pg"`; `name`: `"region_moves"`; `schema`: `undefined`; \}\>
+
+A tenant's request to be re-homed in another region.
+
+## Remarks
+
+**This table records a decision; it does not move data.** Copying a
+tenant's rows to another jurisdiction is an operator-run migration this kit
+deliberately does not implement — a starter that silently re-pointed a row and
+called it a residency change would be worse than one that says "out of band".
+The state machine exists so the decision is attributable
+(`requestedByUserId`), reviewable (`justification`), and cannot be applied
+twice: `status` moves `requested` → `completed` or `cancelled`, and only
+`requested` rows can be completed.
+
+`fromRegion` is captured at request time. It is not read back from the
+organization at completion, because the organization may have been re-homed
+since — and a move that starts in one region and claims to end in another must
+be legible as exactly that.
+
+`requestedByUserId` / `cancelledByUserId` carry no foreign key, following the
+audit log's convention: the record of who asked to move a tenant has to
+survive that account being deleted, which a `ON DELETE CASCADE` FK would
+erase.

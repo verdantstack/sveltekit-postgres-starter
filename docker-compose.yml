@@ -1,0 +1,39 @@
+# Local Postgres for the SvelteKit + Postgres Starter.
+#
+#   docker compose up -d        # start Postgres on localhost:5433 (dev) + :5434 (test)
+#   npm run db:migrate          # apply migrations (needs DATABASE_URL in .env)
+#   npm test                    # run the test suite (needs TEST_DATABASE_URL)
+#
+# Override env with a matching DATABASE_URL / TEST_DATABASE_URL to target a
+# hosted provider (Neon, Railway, Supabase-direct, …) instead.
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: verdantstack
+      POSTGRES_PASSWORD: verdantstack
+      POSTGRES_DB: verdantstack
+    ports:
+      - '5433:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U verdantstack -d verdantstack']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # A separate database for the test suite, so `npm test` never touches dev data.
+  test-db:
+    image: postgres:16-alpine
+    restart: 'no'
+    environment:
+      POSTGRES_USER: verdantstack
+      POSTGRES_PASSWORD: verdantstack
+      POSTGRES_DB: verdantstack_test
+    ports:
+      - '5434:5432'
+
+volumes:
+  pgdata:
